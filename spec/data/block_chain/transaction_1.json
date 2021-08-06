@@ -1,0 +1,16 @@
+{
+  "hash":"abcdef123456",
+  "total": 100000000,
+  "fees": 18238,
+  "inputs": [
+    {
+      "prev_hash": "pwernb234235235",
+      "output_value": 100000000,
+      "addresses": ["abc123"]
+    }
+  ],
+  "outputs": [
+    {"value": 50000000, "addresses": ["pqr789"]},
+    {"value": 50000000, "addresses": ["xyz567"]}
+  ]
+}
