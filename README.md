@@ -67,3 +67,9 @@ cron job: it used 'whenever' gem to run the above task recurringly in local env.
 * Test
 
     made unit tests by using Rspec 
+    
+    bundle exec rspec spec/
+    
+* Rubocop
+
+    rubocop app/
