@@ -5,7 +5,6 @@ rake task: 'bundle exec rake block_chain:import_largest_unconfirmed_transaction'
 cron job: it used 'whenever' gem to run the above task recurringly in local env.
 
 * if you want to run the cron job in kubernetes in another way, you might add the following codes to the kubernetes config file.
-
 docyt-server-cron-import-transactions: &cron
     type: cron
     schedule: */5 * * * *
