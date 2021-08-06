@@ -2,8 +2,8 @@
 
 module Api
   module V1
-    class BlockChainTransactionsController < ApplicationController
-      def largest_unconfirmed_transaction
+    class LargestUnconfirmedTransactionsController < ApplicationController
+      def index
         authorize_action
         largest_unconfirmed_transaction = LargestUnconfirmedTransaction.last
         render status: :ok, json: largest_unconfirmed_transaction, serializer: SimpleTransactionSerializer, root: false
@@ -12,7 +12,7 @@ module Api
       private
 
       def policy_class
-        BlockChainTransactionPolicy
+        LargestUnconfirmedTransactionPolicy
       end
 
       def authorize_action(record = LargestUnconfirmedTransaction)

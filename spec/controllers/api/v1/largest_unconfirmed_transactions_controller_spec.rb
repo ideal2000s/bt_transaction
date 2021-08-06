@@ -5,7 +5,7 @@ require 'spec_helper'
 
 module Api
   module V1
-    RSpec.describe BlockChainTransactionsController do
+    RSpec.describe LargestUnconfirmedTransactionsController do
       before do
         LargestUnconfirmedTransaction.create!(hash_value: Faker::Lorem.characters(10))
       end
@@ -13,7 +13,7 @@ module Api
       describe '#largest_unconfirmed_transaction' do
         context 'without the authorization' do
           it 'returns 401' do
-            get :largest_unconfirmed_transaction, format: :json
+            get :index, format: :json
             expect(response).to have_http_status(:unauthorized)
           end
         end
@@ -24,7 +24,7 @@ module Api
           end
 
           it 'returns 200' do
-            get :largest_unconfirmed_transaction, format: :json
+            get :index, format: :json
             expect(response).to have_http_status(:ok)
             expect(JSON.parse(response.body)).to be_present
           end

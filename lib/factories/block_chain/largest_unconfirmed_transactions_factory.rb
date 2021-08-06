@@ -16,14 +16,14 @@ module BlockChain
     end
 
     def delete_before(date)
-      LargestUnconfirmedTransaction.where('largest_unconfirmed_transactions.created_at < ?', date).destroy_all
+      LargestUnconfirmedTransaction.where('created_at < ?', date).destroy_all
     end
 
     private
 
     def get_transaction_params(block_cypher_transaction)
       transaction_params = block_cypher_transaction.slice('hash', 'total', 'fees', 'inputs', 'outputs').transform_keys(&:to_sym)
-      transaction_params[:hash_value] = transaction_params.delete :hash
+      transaction_params[:hash_value] = transaction_params.delete :hash # hash will be saved in hash_value column
       transaction_params
     end
   end
